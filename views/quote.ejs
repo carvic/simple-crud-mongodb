@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+</head>
+<body>
+  <h3>May Node and Express be with you.</h3>
+
+  <form action="/quotes/edit/<%=quote._id%>" method="POST">
+    <input type="text" placeholder="name" value="<%=quote.name%>" name="name">
+    <input type="text" placeholder="quote" value="<%=quote.quote%>"  name="quote">
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  <a class="a-inside Home" href="/">Home</a>
+
+  <ul class="quotes">
+  <% for(var i=0; i<quotes.length; i++) {%>
+    <li class="quote">
+      <span><%= quotes[i].name %></span>
+      <span><%= quotes[i].quote %></span>
+    <td>
+	<a class="a-inside edit" href="/quotes/edit/<%=quotes[i]._id%>">Edit</a>
+       
+	<a class="a-inside delete" href="/quotes/delete/<%=quotes[i]._id%>">Delete</a>
+       
+    </td>
+
+    </li>
+  <% } %>
+  </ul>
+
+</body>
+</html>
